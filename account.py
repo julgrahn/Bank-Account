@@ -17,6 +17,8 @@ class Account:
 
 
 class Checking(Account):
+    """This class generates checking account objects"""
+    type = "checking"
 
     def __init__(self, filepath, fee):
         Account.__init__(self, filepath)
@@ -25,7 +27,16 @@ class Checking(Account):
     def transfer(self, amount):
         self.balance = self.balance - amount - self.fee
 
-checking = Checking("balance.txt", 1)
-checking.transfer(90)
-print(checking.balance)
-checking.commit()
+jackChecking = Checking("jack.txt", 1)
+jackChecking.transfer(100)
+print(jackChecking.balance)
+jackChecking.commit()
+print(jackChecking.type)
+
+johnChecking = Checking("john.txt", 1)
+johnChecking.transfer(100)
+print(johnChecking.balance)
+johnChecking.commit()
+print(johnChecking.type)
+
+print(johnChecking.__doc__)
